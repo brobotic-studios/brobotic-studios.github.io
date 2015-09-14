@@ -1,0 +1,36 @@
+# Github Pages Overrides (ensure local serve mimics live)
+safe: true
+lsi: false
+source: .
+highlighter: pygments
+
+# Personal Choices
+permalink: /blog/:categories/:title
+relative_permalinks: false
+paginate: 10
+paginate_path: "/blog/page:num/"
+repository: https://github.com/brobotic-studios/brobotic-studios.github.io
+timezone: America/New_York
+encoding: utf-8
+url: https://brobotic.com
+
+# Site-wide defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "blog"
+  -
+    scope:
+      path: "blog"
+      type: "pages"
+    values:
+      layout: "blog"

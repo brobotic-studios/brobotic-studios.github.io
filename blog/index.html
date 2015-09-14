@@ -1,0 +1,37 @@
+---
+title: Brobotic Blog
+tagline: Telling you how it is.
+---
+<div class="ui list">
+  {% for post in paginator.posts %}
+    <div class="item">
+      <div class="content">
+        <div class="header">
+          <h2 class="ui header" href="{{ post.url }}">{{ post.title }}</h2>
+          <div class="ui horizontal bulleted link list">
+            <span class="item">{{ post.date | date_to_long_string }}</span>
+            <a class="item" href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">
+              <i class="comment icon"></i> Comments
+            </a>
+          </div>
+        </div>
+        <div class="description">
+          {{ post.excerpt }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div class="ui fluid three item menu">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="item"><i class="caret left icon"></i> Previous</a>
+  {% else %}
+    <span class="disabled item"><i class="caret left icon"></i> Previous</span>
+  {% endif %}
+  <span class="item ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="item">Next <i class="caret right icon"></i></a>
+  {% else %}
+    <span class="disabled item">Next <i class="caret right icon"></i></span>
+  {% endif %}
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="author" content="Brobotic Studios">
+    <meta name="description" content="{{ page.description }}">
+    <title>Brobotic Studios - {{ page.title }}</title>
+    {% include global_styles.html %}
+  </head>
+  <body>
+    {% include navbar.html %}
+    <div class="pusher">
+      <header class="ui inverted vertical center aligned segment">
+        {% include header_navbar.html %}
+        <div class="ui text container">
+          <h1 class="ui inverted header">{{ page.title }}</h1>
+          <h2>{{ page.tagline }}</h2>
+        </div>
+      </header>
+      <div class="ui grid container">
+        <div class="ui stackable grid">
+          <div class="four wide column">
+            <h4 class="ui header">More on the Blog</h4>
+            <div class="ui list">
+              {% for post in site.related_posts %}
+                <a class="item" href="{{ post.url }}">{{ post.title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="twelve wide column">
+            {{ content }}
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'brobotic';
+                var disqus_title = '{{ page.title }}';
+                var disqus_url = '{{ site.url }}{{ page.url }}';
+                var disqus_identifier = '{{ page.url }}';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    var dsc = document.createElement('script'); dsc.type = 'text/javascript'; dsc.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    dsc.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsc);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
+      </div>
+      {% include footer.html %}
+    </div>
+    {% include global_scripts.html %}
+  </body>
+</html>

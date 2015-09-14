@@ -1,0 +1,5 @@
+# Ignore locally-built site
+_site/
+
+# Ignore Mac nonsense
+.DS_Store
