@@ -1,8 +1,11 @@
 # Github Pages Overrides (ensure local serve mimics live)
-safe: true
 lsi: false
 source: .
 highlighter: pygments
+
+# Github Pages Atom feed generation
+gems:
+  - jekyll-feed
 
 # Personal Choices
 permalink: /blog/:categories/:title
@@ -13,6 +16,12 @@ repository: https://github.com/brobotic-studios/brobotic-studios.github.io
 timezone: America/New_York
 encoding: utf-8
 url: https://brobotic.com
+name: Brobotic Studios
+description: Welcome to the wonderful world of the Brobotic blog.
+author:
+  name: Brobotic Studios
+  email: info@brobotic.com
+  uri: https://brobotic.com
 
 # Site-wide defaults
 defaults:
